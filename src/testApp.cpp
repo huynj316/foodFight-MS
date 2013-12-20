@@ -11,6 +11,9 @@ void testApp::setup() {
 	
 	splatSound.loadSound("audio/splatter.mp3");
 	
+//	faceMiss.loadImage("images/face2.png");
+//	faceHit.loadImage("images/face1.png");
+	
 	target.x = 200;
 	target.y = 200;
 	target.z = 0;
@@ -81,6 +84,7 @@ void testApp::update(){
 		target.x = ofRandom(600);
 		target.y = ofRandom(400);
 		hasHit = false;
+		
 		
 		
 		
@@ -178,7 +182,7 @@ void testApp::draw(){
 		if(gameStatus == 1) 
 			
 			//draw head
-			ofCircle(head.x, head.y, 60);
+			ofCircle(head.x, head.y, 45);
 			
 			//draw shoulders
 			//ofBeginShape();
@@ -311,14 +315,18 @@ void testApp::draw(){
 			if ((target.x - 40) < myBall.pos.x && myBall.pos.x < (target.x + 40) &&
 				(target.y - 40) < myBall.pos.y && myBall.pos.y < target.y + 40) {
 				
+				
 				hasHit = true;
 				now = ofGetElapsedTimef();
 				lastTarget.x = target.x;
 				lastTarget.y = target.y;
+				
+				
 				//cout << "wtf" << endl;
                 
-			}
-			
+			} 
+
+
             
 			ofNoFill();
 			ofSetColor(ofColor::white);		
@@ -331,6 +339,7 @@ void testApp::draw(){
 			
 			for (int i = 0; i < splatList.size(); i++ ) {
 				splatList[i].draw();
+				
 			}
 			
 			prev_rightHand = rightHand;
@@ -350,6 +359,7 @@ void testApp::draw(){
 	
 	if (gameStatus == 1){
 		
+		
 		myBall.draw(hand);	
 		
 		ofDisableBlendMode();
@@ -365,12 +375,12 @@ void testApp::draw(){
 		
 		
 		long currTime = ofGetElapsedTimeMillis();
-		int min = 60000;
+		//int min = 60000;
 		
 		if (currTime <= 15000) {
 			ofSetColor(255);
 			string msg = "Food Fight!";
-			verdana.drawString(msg, WIDTH/3, 100);
+			verdana.drawString(msg, (WIDTH/.99)-150, 100);
 		}
 		
 		

@@ -66,6 +66,9 @@ public:
 	
 	ofImage bg; // bg img
 	
+//	ofImage faceHit;
+//	ofImage faceMiss;
+//	
 	//	ofImage leftHandImg;
 	//	ofImage rightHandImg;
 	
